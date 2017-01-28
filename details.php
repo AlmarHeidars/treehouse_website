@@ -1,4 +1,4 @@
-<?php
+<?php 
 include("inc/data.php");
 include("inc/functions.php");
 
@@ -13,36 +13,25 @@ if (!isset($item)) {
     header("location:catalog.php");
     exit;
 }
- 
+
 $pageTitle = $item["title"];
 $section = null;
 
-include ("inc/header.php"); ?>
+include("inc/header.php"); ?>
 
 <div class="section page">
 
     <div class="wrapper">
-
-        <div class="breadcrumbs">
-            <a href="catalog.php">Full Catalog</a>
-            &gt; <a href="catalog.php?cat=<?php echo strtolower($item["category"]); ?>">
-            <?php echo $item["category"]; ?></a>
-            &gt; <?php echo $item["title"];             
-            ?>
-        </div>
-
+        
         <div class="media-picture">
-
+    
         <span>
-
             <img src="<?php echo $item["img"]; ?>" alt="<?php echo $item["title"]; ?>" />
-
         </span>
-
+            
         </div>
-
+        
         <div class="media-details">
-
             <h1><?php echo $item["title"]; ?></h1>
             <table>
                 <tr>
@@ -61,7 +50,7 @@ include ("inc/header.php"); ?>
                     <th>Year</th>
                     <td><?php echo $item["year"]; ?></td>
                 </tr>
-                <?php if (strtolower($item["category"]) == "books") { ?>
+                <?php if(strtolower($item["category"]) == "books") { ?>
                 <tr>
                     <th>Authors</th>
                     <td><?php echo implode(", ",$item["authors"]); ?></td>
@@ -74,31 +63,28 @@ include ("inc/header.php"); ?>
                     <th>ISBN</th>
                     <td><?php echo $item["isbn"]; ?></td>
                 </tr>
-                <?php } else if (strtolower($item["category"]) == "movies") { ?>
+                <?php } else if(strtolower($item["category"]) == "movies") { ?>
                 <tr>
                     <th>Director</th>
                     <td><?php echo $item["director"]; ?></td>
                 </tr>
-                
                 <tr>
                     <th>Writers</th>
                     <td><?php echo implode(", ",$item["writers"]); ?></td>
                 </tr>
-                
                 <tr>
                     <th>Stars</th>
                     <td><?php echo implode(", ",$item["stars"]); ?></td>
                 </tr>
-                <?php } else if (strtolower($item["category"]) == "music") { ?>
+                <?php } else if(strtolower($item["category"]) == "music") { ?>
                 <tr>
                     <th>Artist</th>
                     <td><?php echo $item["artist"]; ?></td>
                 </tr>
                 <?php } ?>
             </table>
-
         </div>
-
+    
     </div>
 
 </div>
